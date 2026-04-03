@@ -6,6 +6,37 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <img src="image.png" alt="JeromeWorkoutPlan" class="logo-image">
         <span class="logo-text">Workout Plan</span>
     </div>
+
+    <!-- Profile Card -->
+    <div class="sidebar-profile-card">
+        <div class="profile-avatar">
+            <img src="<?php echo isset($_SESSION['profile_picture']) && !empty($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : 'uploads/default-avatar.svg'; ?>" alt="Profile Picture" class="profile-picture">
+        </div>
+        <div class="profile-info">
+            <div class="profile-name"><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'Your Name'; ?></div>
+            <?php
+            $weight = isset($_SESSION['weight']) ? $_SESSION['weight'] : null;
+            $height = isset($_SESSION['height']) ? $_SESSION['height'] : null;
+            $bmi = null;
+
+            if ($weight && $height) {
+                // BMI calculation: weight (kg) / (height (m))^2
+                $height_m = $height / 100; // Convert cm to meters
+                $bmi = round($weight / ($height_m * $height_m), 1);
+            }
+            ?>
+            <?php if ($bmi): ?>
+                <div class="profile-bmi">BMI: <?php echo $bmi; ?></div>
+            <?php endif; ?>
+            <?php if ($weight): ?>
+                <div class="profile-details"><?php echo $weight; ?>kg</div>
+            <?php endif; ?>
+            <?php if ($height): ?>
+                <div class="profile-details"><?php echo $height; ?>cm</div>
+            <?php endif; ?>
+        </div>
+    </div>
+
     <nav>
         <ul>
             <li><a href="index.php" class="<?php echo $current_page == 'index.php' ? 'active' : ''; ?>">
@@ -30,6 +61,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
             </a></li>
         </ul>
     </nav>
+
     <div class="theme-toggle">
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <button type="submit" name="toggle_theme">
