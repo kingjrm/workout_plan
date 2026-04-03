@@ -2,16 +2,16 @@
 
 :root {
     --bg-color: #f8fafc;
-    --sidebar-bg: #1e293b;
+    --sidebar-bg: #ffffff;
     --card-bg: #ffffff;
     --text-color: #1e293b;
-    --accent: #059669;
-    --accent-hover: #047857;
-    --sidebar-text: #cbd5e1;
-    --sidebar-active: #059669;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --sidebar-text: #64748b;
+    --sidebar-active: #3b82f6;
     --border: #e2e8f0;
     --shadow: rgba(0,0,0,0.1);
-    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
 }
 
 .dark {
@@ -19,10 +19,10 @@
     --sidebar-bg: #1e293b;
     --card-bg: #1e293b;
     --text-color: #e2e8f0;
-    --accent: #059669;
-    --accent-hover: #047857;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
     --sidebar-text: #cbd5e1;
-    --sidebar-active: #059669;
+    --sidebar-active: #3b82f6;
     --border: #334155;
     --shadow: rgba(0,0,0,0.3);
 }
@@ -188,7 +188,7 @@ body {
 }
 
 .page-title {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 8px;
@@ -204,9 +204,9 @@ body {
     background: var(--gradient);
     color: white;
     border-radius: 12px;
-    padding: 32px;
+    padding: 24px;
     margin-bottom: 32px;
-    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -229,44 +229,48 @@ body {
 }
 
 .highlight-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     opacity: 0.9;
 }
 
 .fitness-score {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .score-note {
-    font-size: 14px;
+    font-size: 13px;
     opacity: 0.8;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: nowrap;
 }
 
 .metric-item {
     text-align: center;
+    flex: 1;
+    min-width: 100px;
 }
 
 .metric-value {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     display: block;
 }
 
 .metric-label {
-    font-size: 12px;
+    font-size: 11px;
     opacity: 0.8;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .view-progress-btn {
