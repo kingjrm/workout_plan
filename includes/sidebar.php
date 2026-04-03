@@ -25,15 +25,14 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 $bmi = round($weight / ($height_m * $height_m), 1);
             }
             ?>
-            <?php if ($bmi): ?>
-                <div class="profile-bmi">BMI: <?php echo $bmi; ?></div>
-            <?php endif; ?>
-            <?php if ($weight): ?>
-                <div class="profile-details"><?php echo $weight; ?>kg</div>
-            <?php endif; ?>
-            <?php if ($height): ?>
-                <div class="profile-details"><?php echo $height; ?>cm</div>
-            <?php endif; ?>
+            <div class="profile-stats">
+                <?php if ($bmi): ?>
+                    <span class="profile-bmi">BMI: <?php echo $bmi; ?></span>
+                <?php endif; ?>
+                <?php if ($weight): ?>
+                    <span class="profile-weight"><?php echo $weight; ?>kg</span>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 

@@ -86,6 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JeromeWorkoutPlan - Profile</title>
     <link rel="icon" type="image/png" href="image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="<?php echo $_SESSION['theme']; ?>">
@@ -99,7 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="header-right">
                 <div class="date-display"><?php echo date('M j, Y'); ?></div>
-                <button class="filter-btn">Settings</button>
             </div>
         </div>
 
@@ -148,6 +150,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <form method="post" enctype="multipart/form-data" class="profile-form">
+                    <!-- Basic Info Fields (moved inside form) -->
+                    <div class="form-section">
+                        <h4>Basic Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-name">Full Name</label>
+                                <input type="text" id="form-name" name="name" value="<?php echo $_SESSION['name']; ?>" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-age">Age</label>
+                                <input type="number" id="form-age" name="age" value="<?php echo $_SESSION['age']; ?>" placeholder="Your age" min="1" max="120">
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Profile Picture Upload (moved inside form) -->
                     <div class="form-section">
                         <h4>Profile Picture</h4>
@@ -243,6 +260,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
+        // Sync display fields with form fields
+        function syncFields() {
+            const displayName = document.getElementById('name');
+            const displayAge = document.getElementById('age');
+            const formName = document.getElementById('form-name');
+            const formAge = document.getElementById('form-age');
+
+            if (displayName && formName) {
+                displayName.addEventListener('input', function() {
+                    formName.value = this.value;
+                });
+                formName.addEventListener('input', function() {
+                    displayName.value = this.value;
+                });
+            }
+
+            if (displayAge && formAge) {
+                displayAge.addEventListener('input', function() {
+                    formAge.value = this.value;
+                });
+                formAge.addEventListener('input', function() {
+                    displayAge.value = this.value;
+                });
+            }
+        }
+
+        // Initialize field synchronization
+        document.addEventListener('DOMContentLoaded', syncFields);
+
         // Profile picture preview
         document.getElementById('profile-picture-input').addEventListener('change', function(e) {
             const file = e.target.files[0];
@@ -272,7 +318,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Form validation
         document.querySelector('.profile-form').addEventListener('submit', function(e) {
-            const name = document.getElementById('name').value.trim();
+            const name = document.getElementById('form-name').value.trim();
             const height = document.getElementById('height').value;
             const weight = document.getElementById('weight').value;
 
