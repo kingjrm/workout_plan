@@ -2,7 +2,10 @@
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 <div class="sidebar">
-    <div class="logo">JeromeWorkoutPlan</div>
+    <div class="logo">
+        <img src="image.png" alt="JeromeWorkoutPlan" class="logo-image">
+        <span class="logo-text">Workout Plan</span>
+    </div>
     <nav>
         <ul>
             <li><a href="index.php" class="<?php echo $current_page == 'index.php' ? 'active' : ''; ?>">

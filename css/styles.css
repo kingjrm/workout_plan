@@ -44,11 +44,11 @@ body {
 }
 
 .sidebar {
-    width: 220px;
+    width: 200px;
     background-color: var(--sidebar-bg);
     position: fixed;
     height: 100vh;
-    padding: 20px 0;
+    padding: 18px 0;
     box-shadow: 2px 0 10px var(--shadow);
     border-right: 1px solid var(--border);
     z-index: 1000;
@@ -61,6 +61,31 @@ body {
     margin-bottom: 32px;
     color: var(--text-color);
     padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.sidebar .logo .logo-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.sidebar .logo .logo-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.sidebar .logo .logo-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    white-space: nowrap;
 }
 
 .sidebar nav ul {
@@ -126,7 +151,7 @@ body {
 }
 
 .main-content {
-    margin-left: 220px;
+    margin-left: 200px;
     flex: 1;
     min-height: 100vh;
 }
