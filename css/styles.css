@@ -630,3 +630,341 @@ body {
         padding: 16px;
     }
 }
+
+/* Workout Page Styles */
+.rest-day-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 12px var(--shadow);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.rest-day-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+.rest-day-content p {
+    font-size: 16px;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.rest-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+}
+
+.rest-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+.rest-tips {
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.rest-tips h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+.rest-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rest-tips li {
+    padding: 6px 0;
+    color: #64748b;
+    position: relative;
+    padding-left: 20px;
+}
+
+.rest-tips li:before {
+    content: "✓";
+    color: #10b981;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.workout-progress-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.progress-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.progress-stats {
+    text-align: right;
+}
+
+.completed-count {
+    font-size: 14px;
+    color: #64748b;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 120px;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.workout-exercises {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.exercise-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px var(--shadow);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.exercise-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--shadow);
+}
+
+.exercise-card.completed {
+    border-color: #10b981;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.02) 100%);
+}
+
+.exercise-card.completed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+}
+
+.exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.exercise-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.exercise-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.exercise-info {
+    flex: 1;
+}
+
+.exercise-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.exercise-details {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+.exercise-checkbox {
+    position: relative;
+}
+
+.exercise-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-label {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.checkbox-label:hover {
+    border-color: var(--accent);
+}
+
+.checkbox-label .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.exercise-checkbox input[type="checkbox"]:checked ~ .checkbox-label {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.exercise-checkbox input[type="checkbox"]:checked ~ .checkbox-label .checkmark {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.completion-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #10b981;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.completion-badge svg {
+    width: 14px;
+    height: 14px;
+    fill: white;
+}
+
+.workout-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.complete-workout-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.complete-workout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+}
+
+.complete-workout-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+/* Mobile responsiveness for workout page */
+@media (max-width: 768px) {
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .exercise-checkbox {
+        align-self: flex-end;
+    }
+
+    .progress-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .rest-day-card {
+        padding: 24px 20px;
+    }
+
+    .workout-progress-card {
+        padding: 20px;
+    }
+
+    .exercise-card {
+        padding: 16px;
+    }
+}
