@@ -1,0 +1,328 @@
+/* JeromeWorkoutPlan Styles */
+
+:root {
+    --bg-color: #f8fafc;
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --accent: #059669;
+    --accent-hover: #047857;
+    --sidebar-text: #475569;
+    --sidebar-active: #059669;
+    --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.1);
+}
+
+.dark {
+    --bg-color: #0f172a;
+    --sidebar-bg: #1e293b;
+    --card-bg: #1e293b;
+    --text-color: #e2e8f0;
+    --accent: #059669;
+    --accent-hover: #047857;
+    --sidebar-text: #cbd5e1;
+    --sidebar-active: #059669;
+    --border: #334155;
+    --shadow: rgba(0,0,0,0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    background: linear-gradient(135deg, var(--bg-color) 0%, #e0f2fe 100%);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    position: fixed;
+    height: 100vh;
+    padding: 20px 0;
+    box-shadow: 2px 0 10px var(--shadow);
+    border-right: 1px solid var(--border);
+}
+
+.sidebar .logo {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--accent);
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin: 10px 0;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--border);
+    transform: translateX(5px);
+}
+
+.sidebar nav ul li a.active {
+    background-color: var(--accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.sidebar nav ul li a svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    fill: currentColor;
+}
+
+.theme-toggle {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+.theme-toggle button {
+    width: 100%;
+    padding: 10px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.theme-toggle button:hover {
+    background: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+.main-content {
+    margin-left: 240px;
+    padding: 30px;
+    flex: 1;
+}
+
+.welcome-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--accent);
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.welcome-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.welcome-header p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 0;
+    box-shadow: 0 8px 32px var(--shadow);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), #f59e0b);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px var(--shadow);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.card p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.card-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+    fill: var(--accent);
+    flex-shrink: 0;
+}
+
+.btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+}
+
+.progress-bar {
+    background-color: var(--border);
+    border-radius: 8px;
+    height: 12px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--accent), #f59e0b);
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.5s ease;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-color);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    height: 120px;
+    margin: 25px 0;
+    padding: 0 10px;
+}
+
+.chart-bar {
+    width: 35px;
+    background-color: var(--border);
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.chart-bar:hover {
+    transform: scale(1.1);
+}
+
+.chart-bar-fill {
+    background: linear-gradient(to top, var(--accent), #f59e0b);
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+    transition: height 0.5s ease;
+}
+
+.chart-label {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .welcome-header {
+        font-size: 20px;
+    }
+    .welcome-header h1 {
+        font-size: 28px;
+    }
+}
