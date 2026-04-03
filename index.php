@@ -95,6 +95,9 @@ $missed_workouts = 3;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JeromeWorkoutPlan - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="<?php echo $_SESSION['theme']; ?>">
@@ -122,9 +125,11 @@ $missed_workouts = 3;
             <!-- Main Highlight Card -->
             <div class="main-highlight-card">
                 <div class="highlight-content">
-                    <div class="highlight-title">Overall Fitness Score</div>
-                    <div class="fitness-score"><?php echo $fitness_score; ?>/100</div>
-                    <div class="score-note">Good progress — stay consistent</div>
+                    <div class="fitness-score-section">
+                        <div class="highlight-title">Overall Fitness Score</div>
+                        <div class="fitness-score"><?php echo $fitness_score; ?>/100</div>
+                        <div class="score-note">Good progress — stay consistent</div>
+                    </div>
 
                     <div class="metrics-grid">
                         <div class="metric-item">
