@@ -416,6 +416,7 @@ body {
     font-size: 18px;
     font-weight: 700;
     display: block;
+    color: white !important;
 }
 
 .metric-label {
@@ -643,6 +644,7 @@ body {
     box-shadow: 0 4px 12px var(--shadow);
     border: 1px solid var(--border);
     margin-bottom: 24px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .workout-title, .meal-title {
@@ -1797,6 +1799,7 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 .meal-card:hover {
